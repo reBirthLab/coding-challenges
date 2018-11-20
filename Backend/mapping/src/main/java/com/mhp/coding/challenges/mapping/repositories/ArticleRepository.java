@@ -22,6 +22,9 @@ public class ArticleRepository {
     }
 
     public Article findBy(Long id){
+        if(id == 6006L) {
+            return null;
+        }
         return createDummyArticle(id);
     }
 
