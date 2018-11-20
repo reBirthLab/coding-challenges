@@ -1,5 +1,7 @@
 package com.mhp.coding.challenges.dependency;
 
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import com.mhp.coding.challenges.dependency.inquiry.Inquiry;
 import com.mhp.coding.challenges.dependency.inquiry.InquiryService;
 import com.mhp.coding.challenges.dependency.notifications.EmailHandler;
@@ -10,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = Application.class)
@@ -33,6 +32,10 @@ public class InquiryTest {
         inquiry.setUsername("TestUser");
         inquiry.setRecipient("service@example.com");
         inquiry.setText("Can I haz cheezburger?");
+
+        inquiryService.unsubscribeAll();
+        inquiryService.addSubscriber(emailHandler);
+        inquiryService.addSubscriber(pushNotificationHandler);
 
         inquiryService.create(inquiry);
 
