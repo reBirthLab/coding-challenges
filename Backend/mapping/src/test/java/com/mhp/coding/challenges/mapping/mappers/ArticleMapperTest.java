@@ -1,9 +1,8 @@
-package mappers;
+package com.mhp.coding.challenges.mapping.mappers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import com.mhp.coding.challenges.mapping.Application;
-import com.mhp.coding.challenges.mapping.mappers.ArticleMapper;
 import com.mhp.coding.challenges.mapping.models.db.Article;
 import com.mhp.coding.challenges.mapping.models.db.blocks.ArticleBlock;
 import com.mhp.coding.challenges.mapping.models.db.blocks.VideoBlockType;
